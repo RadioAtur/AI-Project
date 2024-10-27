@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline AI Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-okaidia.min.css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+        }
+        h1 {
+            font-size: 2.2em;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin-top: 25px;
+        }
+        p, li {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        details {
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #0056b3;
+        }
+        .code-box {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+            overflow: auto;
+            max-width: 800px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #0056b3;
+            border: none;
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+            color: white;
+            font-size: 0.8em;
+            display: flex;
+            align-items: center;
+        }
+        .copy-button img {
+            width: 16px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+	<h1>Offline AI: Features, Applications, and Building Guide</h1>
+	<p>Offline AI, or AI systems operating without internet, are self-contained, meaning they run directly on local devices like laptops or smartphones. These systems are designed to perform efficiently in environments without internet connectivity, ensuring user privacy and reducing data usage.</p>
+
+	<details>
+		<summary>Core Features</summary>
+		<ol>
+			<li><strong>Independent Operation:</strong> No need for internet; they operate directly on local devices.</li>
+			<li><strong>Privacy Assurance:</strong> Local processing means data never leaves the device, protecting privacy.</li>
+			<li><strong>Fast Response Times:</strong> Immediate processing due to the lack of data transfer delays.</li>
+			<li><strong>Low Data Consumption:</strong> Useful in limited data scenarios or remote areas.</li>
+		</ol>
+	</details>
+
+	<details>
+		<summary>Primary Applications</summary>
+		<ol>
+			<li><strong>Image Processing:</strong> Facial recognition, object detection, and more on devices like smartphones.</li>
+			<li><strong>Text & Speech Processing:</strong> Offline apps for transcription, sentiment analysis, etc.</li>
+			<li><strong>Data Analysis:</strong> Algorithms analyzing data on the device, beneficial for healthcare or finance.</li>
+			<li><strong>Robotics:</strong> Robots making decisions and performing tasks independently.</li>
+		</ol>
+	</details>
+
+	<details>
+		<summary>Suggested Tools for Offline AI</summary>
+		<ul>
+			<li><b>TensorFlow Lite:</b> Compact version of TensorFlow optimized for mobile devices.</li>
+			<li><b>PyTorch Mobile:</b> PyTorch's mobile extension for low-power devices.</li>
+			<li><b>ONNX Runtime:</b> Supports offline deployment of machine learning models.</li>
+		</ul>
+	</details>
+	
+    <h2>Building Your Own Offline AI Model</h2>
+    <p>Below are steps to create and deploy your own AI model offline:</p>
+
+    <details>
+        <summary>Steps</summary>
+        <ol>
+            <li><b>Define Your Goal:</b> Determine your AI’s purpose, e.g., voice assistant, image recognition, or recommendation system.</li>
+            <li><b>Data Collection:</b> Collect training data like images, texts, or audio files relevant to your project.</li>
+            <li><b>Select Framework:</b>Select tools such as TensorFlow, PyTorch, or Scikit-learn for model building and training.</li>
+            <li><b>Train Model:</b></li>
+                <div class="code-box">
+                    <button class="copy-button" onclick="copyCode('train-model-code')">
+                        Copy <img src="https://img.icons8.com/ios-filled/50/ffffff/copy.png" alt="Copy Icon">
+                    </button>
+                    <pre id="train-model-code" class="language-python"><code>
+import tensorflow as tf
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(128, activation='relu', input_shape=(input_shape,)),
+    keras.layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+model.fit(train_data, train_labels, epochs=5)
+                    </code></pre>
+                </div>
+			<li><b>Test Your Model:</b> Evaluate the performance with a separate test set.</li>
+			<li><b>Optimize and Fine-tune:</b> Adjust model parameters or architecture for better accuracy.</li>
+            <li><b>Prepare for Offline Use:</b> Use frameworks like TensorFlow Lite or ONNX to deploy offline.</li>
+            <li><b>Iterate and Improve:</b> Test and refine the model with new data.</li>
+        </ol>
+    </details>
+
+    <h2>Setting Up an Offline Voice Assistant With Python</h2>
+    <p>Follow these steps to create a voice assistant using Python for offline use:</p>
+
+    <details>
+        <summary>Steps to Create an Offline Voice Assistant</summary>
+        <ol>
+            <li><b>Set up Hardware: </b> Raspberry Pi with a microphone and speaker.</li>
+			<li><b>Install System: </b> Use Raspberry Pi OS for compatibility.</li>
+            <li><b>Install Necessary Libraries:</b></li>
+                <div class="code-box">
+                    <button class="copy-button" onclick="copyCode('install-libraries')">
+                        Copy <img src="https://img.icons8.com/ios-filled/50/ffffff/copy.png" alt="Copy Icon">
+                    </button>
+                    <pre id="install-libraries" class="language-bash"><code>
+sudo apt-get update
+sudo apt-get install python3-pip
+pip3 install SpeechRecognition pyaudio gtts playsound
+                    </code></pre>
+                </div>
+            <li><b>Write Voice Recognition Code:</b></li>
+                <div class="code-box">
+                    <button class="copy-button" onclick="copyCode('voice-recognition-code')">
+                        Copy <img src="https://img.icons8.com/ios-filled/50/ffffff/copy.png" alt="Copy Icon">
+                    </button>
+                    <pre id="voice-recognition-code" class="language-python"><code>
+import speech_recognition as sr
+from gtts import gTTS
+import os
+from playsound import playsound
+
+def speak(text):
+    tts = gTTS(text=text, lang='en')
+    tts.save("response.mp3")
+    playsound("response.mp3")
+    os.remove("response.mp3")
+
+def listen():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        audio = r.listen(source)
+        try:
+            command = r.recognize_google(audio)
+            print(f"You said: {command}")
+            return command
+        except sr.UnknownValueError:
+            print("Sorry, I could not understand.")
+            return None
+        except sr.RequestError:
+            print("Request failed.")
+            return None
+
+while True:
+    command = listen()
+    if command:
+        if "hello" in command:
+            speak("Hello! How can I help?")
+        elif "goodbye" in command:
+            speak("Goodbye!")
+            break
+                    </code></pre>
+                </div>
+        </ol>
+    </details>
+	<h2>Additional Tips</h2>
+	<ul>
+		<li>For complete offline processing, explore <b>Vosk</b> or <b>Mozilla DeepSpeech</b> models.</li>
+		<li>Consider hardware limitations when designing complex models for offline use.</li>
+		<li>Perform regular testing to ensure the accuracy and reliability of your model.</li>
+	</ul>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-bash.min.js"></script>
+    <script>
+        function copyCode(codeId) {
+            const codeElement = document.getElementById(codeId);
+            navigator.clipboard.writeText(codeElement.innerText).then(() => {
+                alert("Code copied!");
+            }, (err) => {
+                console.error("Error copying code: ", err);
+            });
+        }
+    </script>
+</body>
+</html>
